@@ -98,7 +98,18 @@
                 submitButton.textContent = 'Requesting...';
 
                 // Insert Directual API request here
-                fetch('https://api.chucknorris.io/jokes/random')
+                fetch('https://api.directual.com/good/api/v5/data/deliverables/newDelivery?appID=6fd13d87-655b-424d-aadb-0238fc477549&sessionID=', {
+                        method: 'POST',
+                        // specify id if you want to edit existing objects
+                        body: JSON.stringify({
+                        'id': '...',
+                     }),
+                       headers: {
+                        'Content-Type': 'application/json'
+                        },
+                        }).then(res=>{
+                        console.log(res.json())
+                        })
                     .then(response => response.json())
                     .then(data => {
                         // Not using response at the moment
